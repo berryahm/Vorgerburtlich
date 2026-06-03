@@ -17,7 +17,18 @@
   <meta name="description" data-i18n="meta.description"
         content="Kostenlose, unverbindliche Beratung zur vorgeburtlichen Krankenkassenanmeldung fürs Baby. Schweizer Beratung, einfach & rechtzeitig erledigt." />
   <link rel="canonical" href="https://express-vorgeburtlich.ch/" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="author" content="Finsion GmbH" />
+  <meta name="geo.region" content="CH-ZH" />
+  <meta name="geo.placename" content="Dübendorf" />
+
+  <!-- ===== hreflang (eine URL, vier Sprachen per JS-Umschaltung) ===== -->
+  <link rel="alternate" hreflang="de-CH" href="https://express-vorgeburtlich.ch/" />
+  <link rel="alternate" hreflang="en" href="https://express-vorgeburtlich.ch/" />
+  <link rel="alternate" hreflang="fr-CH" href="https://express-vorgeburtlich.ch/" />
+  <link rel="alternate" hreflang="it-CH" href="https://express-vorgeburtlich.ch/" />
+  <link rel="alternate" hreflang="x-default" href="https://express-vorgeburtlich.ch/" />
 
   <!-- ===== Open Graph (Meta-Ads / Sharing) ===== -->
   <meta property="og:type" content="website" />
@@ -27,8 +38,14 @@
         content="Kostenlose, unverbindliche Beratung zur vorgeburtlichen Anmeldung deines Babys. Als Dankeschön ein Babyphone bei erfolgreicher Anmeldung." />
   <meta property="og:url" content="https://express-vorgeburtlich.ch/" />
   <meta property="og:locale" content="de_CH" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:locale:alternate" content="fr_CH" />
+  <meta property="og:locale:alternate" content="it_CH" />
   <!-- PLATZHALTER: Open-Graph-Bild (1200x630) -->
   <meta property="og:image" content="https://express-vorgeburtlich.ch/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Express Vorgeburtlich: Krankenkassenanmeldung fürs Baby" />
 
   <!-- ===== Twitter Card ===== -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -50,6 +67,82 @@
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
 
   <link rel="stylesheet" href="styles.css?v=13" />
+
+  <!-- ============================================================
+       Strukturierte Daten (Schema.org JSON-LD)
+       Organisation · Website · Service · FAQ
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://express-vorgeburtlich.ch/#organization",
+        "name": "Express Vorgeburtlich",
+        "legalName": "Finsion GmbH",
+        "url": "https://express-vorgeburtlich.ch/",
+        "logo": "https://express-vorgeburtlich.ch/assets/og-image.jpg",
+        "email": "info@finsion.ch",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Im Schossacher 12",
+          "postalCode": "8600",
+          "addressLocality": "Dübendorf",
+          "addressRegion": "ZH",
+          "addressCountry": "CH"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Schweiz"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://express-vorgeburtlich.ch/#website",
+        "url": "https://express-vorgeburtlich.ch/",
+        "name": "Express Vorgeburtlich",
+        "inLanguage": ["de-CH", "en", "fr-CH", "it-CH"],
+        "publisher": { "@id": "https://express-vorgeburtlich.ch/#organization" }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://express-vorgeburtlich.ch/#service",
+        "name": "Vorgeburtliche Krankenkassenanmeldung fürs Baby",
+        "serviceType": "Beratung zur vorgeburtlichen Krankenkassenanmeldung",
+        "provider": { "@id": "https://express-vorgeburtlich.ch/#organization" },
+        "areaServed": { "@type": "Country", "name": "Schweiz" },
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Werdende Eltern"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "CHF",
+          "description": "Kostenlose und unverbindliche Beratung"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://express-vorgeburtlich.ch/#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "Was ist eine vorgeburtliche Krankenkassenanmeldung?", "acceptedAnswer": { "@type": "Answer", "text": "Es ist die Anmeldung deines Babys bei der Krankenkasse bereits vor der Geburt. So ist alles vorbereitet und die Versicherung kann fristgerecht starten, sobald dein Baby da ist." } },
+          { "@type": "Question", "name": "Warum vor der Geburt anmelden?", "acceptedAnswer": { "@type": "Answer", "text": "Wer frühzeitig anmeldet, hat den Kopf nach der Geburt frei und vermeidet Zeitdruck. Du kannst Optionen in Ruhe vergleichen, statt alles in den ersten hektischen Wochen zu erledigen." } },
+          { "@type": "Question", "name": "Ist die Beratung kostenlos?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Die Beratung ist komplett kostenlos und unverbindlich. Es entstehen dir keine Kosten und du gehst keine Verpflichtung ein." } },
+          { "@type": "Question", "name": "Bekomme ich das Babyphone garantiert?", "acceptedAnswer": { "@type": "Answer", "text": "Das Babyphone ist ein Dankeschön bei erfolgreicher Anmeldung über uns und nach erfüllten Kampagnenbedingungen. Es ist ein nettes Extra, nicht der Hauptgrund für die Beratung." } },
+          { "@type": "Question", "name": "Was bedeutet «erfolgreiche Anmeldung»?", "acceptedAnswer": { "@type": "Answer", "text": "Eine erfolgreiche Anmeldung bedeutet, dass die vorgeburtliche Krankenkassenanmeldung deines Babys über uns abgeschlossen wird. Die genauen Bedingungen findest du in den Kampagnenbedingungen." } },
+          { "@type": "Question", "name": "Kann ich mich melden, wenn das Baby schon geboren ist?", "acceptedAnswer": { "@type": "Answer", "text": "Ja, melde dich trotzdem. Wir schauen gemeinsam, was in deiner Situation sinnvoll ist und welche Schritte noch offen sind." } },
+          { "@type": "Question", "name": "Welche Angaben brauche ich?", "acceptedAnswer": { "@type": "Answer", "text": "Für den Start genügen Name, Telefonnummer, E-Mail, PLZ und der errechnete Geburtstermin. Alles Weitere besprechen wir im persönlichen Gespräch." } },
+          { "@type": "Question", "name": "Muss ich direkt etwas unterschreiben?", "acceptedAnswer": { "@type": "Answer", "text": "Nein. Mit dem Formular forderst du nur die kostenlose Beratung an. Du entscheidest in aller Ruhe und gehst keine Verpflichtung ein." } },
+          { "@type": "Question", "name": "Werde ich telefonisch kontaktiert?", "acceptedAnswer": { "@type": "Answer", "text": "Wir melden uns telefonisch oder per E-Mail, je nachdem, wie es dir am besten passt. Du kannst das im Gespräch jederzeit sagen." } },
+          { "@type": "Question", "name": "Gilt das Angebot in der ganzen Schweiz?", "acceptedAnswer": { "@type": "Answer", "text": "Ja, unsere Beratung richtet sich an werdende Eltern in der ganzen Deutschschweiz und darüber hinaus." } },
+          { "@type": "Question", "name": "Geht die Beratung auch auf EN/FR/IT?", "acceptedAnswer": { "@type": "Answer", "text": "Diese Seite ist auf Deutsch, Englisch, Französisch und Italienisch verfügbar. Sag uns einfach, in welcher Sprache du dich am wohlsten fühlst." } }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
