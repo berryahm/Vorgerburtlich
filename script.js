@@ -8,7 +8,8 @@
    1) CONFIG: ALLE austauschbaren Werte an einem Ort
    ============================================================ */
 const CONFIG = {
-  formEndpoint: "REPLACE_FORM_ENDPOINT",   // z. B. Formspree, eigene API, Make/Zapier-Webhook
+  formEndpoint: "https://api.web3forms.com/submit",   // Web3Forms
+  web3formsKey: "d5a46f99-103c-4963-9f98-6e6a2f3a9c83", // Web3Forms Access Key (Pflicht)
   calendlyUrl:  "REPLACE_CALENDLY_URL",    // leer lassen, um Button zu verbergen
   whatsappUrl:  "REPLACE_WHATSAPP_URL",    // https://wa.me/41XXXXXXXXX
   phone:        "REPLACE_PHONE",
@@ -1150,10 +1151,17 @@ function initForm() {
         return;
       }
 
+      // Web3Forms erwartet access_key im Body; aussagekraeftiger Betreff/Absender
+      const body = Object.assign({}, payload, {
+        access_key: CONFIG.web3formsKey,
+        subject: "Neue Anmeldung: " + payload.firstName + " " + payload.lastName,
+        from_name: "Express Vorgeburtlich"
+      });
+
       const res = await fetch(CONFIG.formEndpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(body)
       });
 
       if (!res.ok) throw new Error("Request failed: " + res.status);
