@@ -668,3 +668,61 @@ body.modal-open { overflow: hidden; }
 .legal address { font-style: normal; color: var(--text); line-height: 1.7; }
 .legal-back { display: inline-flex; align-items: center; gap: 6px; margin-top: var(--sp-4); color: var(--brand); text-decoration: none; font-weight: 600; }
 .legal-back:hover { text-decoration: underline; }
+
+/* ============================================================
+   Cookie-/Consent-Banner
+   ============================================================ */
+.consent {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 60;
+  padding: var(--sp-3);
+  display: flex;
+  justify-content: center;
+}
+.consent[hidden] { display: none; }
+.consent-card {
+  width: 100%;
+  max-width: 880px;
+  background: #fff;
+  border: 1px solid var(--line, #ece4da);
+  border-radius: var(--radius, 16px);
+  box-shadow: 0 12px 40px rgba(20, 40, 50, 0.18);
+  padding: var(--sp-3) var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+.consent-body h3 { font-size: 17px; margin: 0 0 6px; }
+.consent-body p { font-size: 14px; color: var(--text-soft); margin: 0; line-height: 1.6; }
+.consent-body a { color: var(--brand); text-decoration: underline; text-underline-offset: 2px; }
+.consent-options {
+  display: grid;
+  gap: 10px;
+  margin-top: var(--sp-2);
+}
+.consent-options[hidden] { display: none; }
+.consent-opt {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.consent-opt input { margin-top: 3px; width: 16px; height: 16px; accent-color: var(--brand); flex: 0 0 auto; }
+.consent-opt strong { display: block; color: var(--text); font-size: 14px; }
+.consent-opt small { display: block; color: var(--text-soft); font-size: 12.5px; line-height: 1.5; }
+.consent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+.consent-actions .btn { flex: 0 0 auto; }
+.consent-actions .btn[hidden] { display: none; }
+@media (max-width: 639px) {
+  .consent { padding: 10px; }
+  .consent-card { padding: var(--sp-3); border-radius: 14px; }
+  .consent-actions { justify-content: stretch; }
+  .consent-actions .btn { flex: 1 1 auto; }
+}

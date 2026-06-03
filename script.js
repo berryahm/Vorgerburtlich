@@ -15,7 +15,8 @@ const CONFIG = {
   email:        "REPLACE_EMAIL",
   privacyUrl:   "REPLACE_PRIVACY_URL",
   imprintUrl:   "REPLACE_IMPRINT_URL",
-  metaPixelId:  "",                        // leer = Pixel deaktiviert
+  metaPixelId:  "",                        // leer = Pixel deaktiviert; laedt NUR bei Marketing-Einwilligung
+  gaMeasurementId: "",                     // z. B. "G-XXXXXXX"; leer = aus; laedt NUR bei Statistik-Einwilligung
   defaultLang:  "de",
 
   /* Teil-Lead-Capturing (Nachfassen bei Abbruch im Wizard).
@@ -214,7 +215,20 @@ const I18N = {
     "exit.title": "Termin noch nicht eingetragen?",
     "exit.text": "Dauert nur 30 Sekunden, und du siehst sofort deine persönliche Anmelde-Timeline.",
     "exit.cta": "Jetzt in 30 Sekunden starten",
-    "exit.dismiss": "Später"
+    "exit.dismiss": "Später",
+    "consent.title": "Wir respektieren deine Privatsphäre",
+    "consent.text": "Wir verwenden notwendige Cookies für den Betrieb der Website. Mit deiner Einwilligung nutzen wir zusätzlich Statistik- und Marketing-Dienste. Details in der",
+    "consent.link": "Datenschutzerklärung",
+    "consent.necessary": "Notwendig",
+    "consent.necessaryHint": "Für den Grundbetrieb erforderlich. Immer aktiv.",
+    "consent.stats": "Statistik",
+    "consent.statsHint": "Google Analytics: anonyme Nutzungsanalyse.",
+    "consent.marketing": "Marketing",
+    "consent.marketingHint": "Meta-Pixel: Messung und Optimierung von Werbung.",
+    "consent.reject": "Nur notwendige",
+    "consent.customize": "Auswählen",
+    "consent.save": "Auswahl speichern",
+    "consent.accept": "Alle akzeptieren"
   },
 
   /* ---------------- ENGLISCH ---------------- */
@@ -390,7 +404,20 @@ const I18N = {
     "exit.title": "Due date not entered yet?",
     "exit.text": "It takes just 30 seconds, and you will instantly see your personal sign-up timeline.",
     "exit.cta": "Start now in 30 seconds",
-    "exit.dismiss": "Later"
+    "exit.dismiss": "Later",
+    "consent.title": "We respect your privacy",
+    "consent.text": "We use necessary cookies to operate the website. With your consent we also use statistics and marketing services. Details in our",
+    "consent.link": "privacy policy",
+    "consent.necessary": "Necessary",
+    "consent.necessaryHint": "Required for basic operation. Always active.",
+    "consent.stats": "Statistics",
+    "consent.statsHint": "Google Analytics: anonymous usage analysis.",
+    "consent.marketing": "Marketing",
+    "consent.marketingHint": "Meta Pixel: measuring and optimising ads.",
+    "consent.reject": "Necessary only",
+    "consent.customize": "Choose",
+    "consent.save": "Save selection",
+    "consent.accept": "Accept all"
   },
 
   /* ---------------- FRANZÖSISCH ---------------- */
@@ -566,7 +593,20 @@ const I18N = {
     "exit.title": "Date pas encore renseignée?",
     "exit.text": "Cela ne prend que 30 secondes, et vous verrez aussitôt votre calendrier d'inscription personnel.",
     "exit.cta": "Commencer en 30 secondes",
-    "exit.dismiss": "Plus tard"
+    "exit.dismiss": "Plus tard",
+    "consent.title": "Nous respectons ta vie privée",
+    "consent.text": "Nous utilisons des cookies nécessaires au fonctionnement du site. Avec ton consentement, nous utilisons aussi des services de statistique et de marketing. Détails dans notre",
+    "consent.link": "déclaration de confidentialité",
+    "consent.necessary": "Nécessaire",
+    "consent.necessaryHint": "Requis pour le fonctionnement de base. Toujours actif.",
+    "consent.stats": "Statistique",
+    "consent.statsHint": "Google Analytics: analyse anonyme de l'utilisation.",
+    "consent.marketing": "Marketing",
+    "consent.marketingHint": "Pixel Meta: mesure et optimisation des publicités.",
+    "consent.reject": "Nécessaires uniquement",
+    "consent.customize": "Choisir",
+    "consent.save": "Enregistrer la sélection",
+    "consent.accept": "Tout accepter"
   },
 
   /* ---------------- ITALIENISCH ---------------- */
@@ -742,7 +782,20 @@ const I18N = {
     "exit.title": "Data non ancora inserita?",
     "exit.text": "Bastano 30 secondi e vedrai subito la tua timeline di iscrizione personale.",
     "exit.cta": "Inizia in 30 secondi",
-    "exit.dismiss": "Più tardi"
+    "exit.dismiss": "Più tardi",
+    "consent.title": "Rispettiamo la tua privacy",
+    "consent.text": "Utilizziamo cookie necessari per il funzionamento del sito. Con il tuo consenso usiamo anche servizi di statistica e marketing. Dettagli nella nostra",
+    "consent.link": "informativa sulla privacy",
+    "consent.necessary": "Necessari",
+    "consent.necessaryHint": "Necessari per il funzionamento di base. Sempre attivi.",
+    "consent.stats": "Statistica",
+    "consent.statsHint": "Google Analytics: analisi anonima dell'utilizzo.",
+    "consent.marketing": "Marketing",
+    "consent.marketingHint": "Meta Pixel: misurazione e ottimizzazione della pubblicità.",
+    "consent.reject": "Solo necessari",
+    "consent.customize": "Scegli",
+    "consent.save": "Salva selezione",
+    "consent.accept": "Accetta tutti"
   }
 };
 
@@ -1454,19 +1507,105 @@ function initUI() {
 }
 
 /* ============================================================
-   8) Optional: Meta-Pixel laden (nur wenn metaPixelId gesetzt)
+   8) Consent (revDSG): Statistik & Marketing laden NUR nach Einwilligung
    ============================================================ */
-function initPixel() {
-  if (!CONFIG.metaPixelId) return; // leer = deaktiviert
-  /* eslint-disable */
-  !(function (f, b, e, v, n, t, s) {
-    if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
-    if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0"; n.queue = [];
-    t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
-  })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-  /* eslint-enable */
-  window.fbq("init", CONFIG.metaPixelId);
-  window.fbq("track", "PageView");
+const Consent = (function () {
+  const KEY = "ev_consent";
+
+  function read() {
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (!raw) return null;
+      const v = JSON.parse(raw);
+      if (v && typeof v === "object") return v;
+    } catch (e) { /* ignore */ }
+    return null;
+  }
+
+  function save(stats, marketing) {
+    const v = { set: true, stats: !!stats, marketing: !!marketing, ts: Date.now() };
+    try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) { /* ignore */ }
+    return v;
+  }
+
+  // Tatsaechliches Laden der Dienste anhand der Einwilligung
+  function apply(v) {
+    if (!v) return;
+    if (v.marketing) loadPixel();
+    if (v.stats) loadAnalytics();
+  }
+
+  // --- Meta-Pixel (nur bei Marketing-Einwilligung) ---
+  let pixelLoaded = false;
+  function loadPixel() {
+    if (pixelLoaded || !CONFIG.metaPixelId) return;
+    pixelLoaded = true;
+    /* eslint-disable */
+    !(function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0"; n.queue = [];
+      t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+    })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    /* eslint-enable */
+    window.fbq("init", CONFIG.metaPixelId);
+    window.fbq("track", "PageView");
+  }
+
+  // --- Google Analytics (nur bei Statistik-Einwilligung) ---
+  let gaLoaded = false;
+  function loadAnalytics() {
+    if (gaLoaded || !CONFIG.gaMeasurementId) return;
+    gaLoaded = true;
+    const s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(CONFIG.gaMeasurementId);
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", CONFIG.gaMeasurementId, { anonymize_ip: true });
+  }
+
+  return { read, save, apply, hasMarketing: () => !!(read() && read().marketing), hasStats: () => !!(read() && read().stats) };
+})();
+
+function initConsent() {
+  const banner = document.getElementById("consent");
+  if (!banner) return;
+
+  const stored = Consent.read();
+  if (stored && stored.set) {
+    // Einwilligung liegt vor: Banner aus, Dienste laden
+    Consent.apply(stored);
+    return;
+  }
+
+  const options   = document.getElementById("consentOptions");
+  const cbStats   = document.getElementById("consentStats");
+  const cbMarket  = document.getElementById("consentMarketing");
+  const btnAccept = document.getElementById("consentAccept");
+  const btnReject = document.getElementById("consentReject");
+  const btnCustom = document.getElementById("consentCustomize");
+  const btnSave   = document.getElementById("consentSave");
+
+  banner.hidden = false;
+
+  function close(stats, marketing) {
+    const v = Consent.save(stats, marketing);
+    Consent.apply(v);
+    banner.hidden = true;
+  }
+
+  if (btnAccept) btnAccept.addEventListener("click", () => close(true, true));
+  if (btnReject) btnReject.addEventListener("click", () => close(false, false));
+  if (btnCustom) btnCustom.addEventListener("click", () => {
+    if (options) options.hidden = false;
+    if (btnSave) btnSave.hidden = false;
+    btnCustom.hidden = true;
+  });
+  if (btnSave) btnSave.addEventListener("click", () => {
+    close(cbStats && cbStats.checked, cbMarket && cbMarket.checked);
+  });
 }
 
 /* ============================================================
@@ -1482,5 +1621,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initDueDate();
   initZipLookup();
   initExitIntent();
-  initPixel();
+  initConsent();
 });
