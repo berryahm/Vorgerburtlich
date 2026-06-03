@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  Express Vorgeburtlich: Lead-Gen Landingpage
+  Vorgeburtliche Krankenkassenanmeldung fürs Baby
+  Stack: Semantisches HTML5 + CSS Custom Properties + Vanilla JS
+  Ziel (KPI): Lead-Formular vollständig ausgefüllt & abgesendet
+  ============================================================
+-->
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== SEO / Meta ===== -->
+  <title data-i18n="meta.title">Express Vorgeburtlich: Krankenkassenanmeldung fürs Baby</title>
+  <meta name="description" data-i18n="meta.description"
+        content="Kostenlose, unverbindliche Beratung zur vorgeburtlichen Krankenkassenanmeldung fürs Baby. Schweizer Beratung, einfach & rechtzeitig erledigt." />
+  <link rel="canonical" href="https://express-vorgeburtlich.ch/" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- ===== Open Graph (Meta-Ads / Sharing) ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Express Vorgeburtlich" />
+  <meta property="og:title" data-i18n="meta.ogTitle" content="Krankenkassenanmeldung fürs Baby: einfach & rechtzeitig" />
+  <meta property="og:description" data-i18n="meta.ogDescription"
+        content="Kostenlose, unverbindliche Beratung zur vorgeburtlichen Anmeldung deines Babys. Als Dankeschön ein Babyphone bei erfolgreicher Anmeldung." />
+  <meta property="og:url" content="https://express-vorgeburtlich.ch/" />
+  <meta property="og:locale" content="de_CH" />
+  <!-- PLATZHALTER: Open-Graph-Bild (1200x630) -->
+  <meta property="og:image" content="https://express-vorgeburtlich.ch/assets/og-image.jpg" />
+
+  <!-- ===== Twitter Card ===== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" data-i18n="meta.ogTitle" content="Krankenkassenanmeldung fürs Baby: einfach & rechtzeitig" />
+  <meta name="twitter:description" data-i18n="meta.ogDescription"
+        content="Kostenlose, unverbindliche Beratung zur vorgeburtlichen Anmeldung deines Babys." />
+  <!-- PLATZHALTER: Twitter-Bild -->
+  <meta name="twitter:image" content="https://express-vorgeburtlich.ch/assets/og-image.jpg" />
+
+  <!-- ===== Favicon-Platzhalter ===== -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- ===== Fonts: moderne humanistische Sans (Display + Body) mit System-Fallback ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+
+  <link rel="stylesheet" href="styles.css?v=10" />
+</head>
+<body>
+
+  <!-- ============================================================
+       SVG-Icon-Sprite (einmal definiert, per <use> referenziert)
+       ============================================================ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5l8-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-9.3-9C1.2 8.2 2.6 5 5.8 5 8 5 9.3 6.5 12 9c2.7-2.5 4-4 6.2-4 3.2 0 4.6 3.2 3.1 6-2.3 4.5-9.3 9-9.3 9z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 3V5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6V3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+      <symbol id="i-gift" viewBox="0 0 24 24"><path d="M4 11h16v9H4v-9zM3 7h18v4H3V7zM12 7v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 7S10.5 3 8 4s-.5 3 4 3zM12 7s1.5-4 4-3 .5 3-4 3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m20 20-3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+      <symbol id="i-stroller" viewBox="0 0 24 24"><path d="M4 5a8 8 0 0 1 8 8H4V5zM12 13h8a8 8 0 0 1-8 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="7" cy="20" r="1.6" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="20" r="1.6" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2C10 21 3 14 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ============================================================
+       HEADER (sticky)
+       ============================================================ -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="Express Vorgeburtlich: Startseite">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-heart"></use></svg>
+        </span>
+        <span class="logo-text">Express<span class="logo-accent">Vorgeburtlich</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <a href="#ablauf" data-i18n="nav.process">So funktioniert's</a>
+        <a href="#vorteile" data-i18n="nav.benefits">Vorteile</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Sprachumschalter -->
+        <div class="lang-switch" role="group" aria-label="Sprache wählen">
+          <button type="button" class="lang-btn" data-lang="de" aria-pressed="true">DE</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button type="button" class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
+          <button type="button" class="lang-btn" data-lang="it" aria-pressed="false">IT</button>
+        </div>
+        <a href="#formular" class="btn btn-primary btn-sm header-cta" data-i18n="nav.cta">Jetzt anmelden</a>
+        <button type="button" class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile-Navigation -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation" hidden>
+      <a href="#ablauf" data-i18n="nav.process">So funktioniert's</a>
+      <a href="#vorteile" data-i18n="nav.benefits">Vorteile</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      <a href="#formular" class="btn btn-primary" data-i18n="nav.cta">Jetzt anmelden</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow" data-i18n="hero.eyebrow">Vorgeburtliche Krankenkassenanmeldung</span>
+          <h1 class="hero-title" data-i18n="hero.title">
+            Die Anmeldung fürs Baby: einfach &amp; rechtzeitig erledigt
+          </h1>
+          <p class="hero-sub" data-i18n="hero.sub">
+            Wir begleiten dich kostenlos und unverbindlich durch die vorgeburtliche Anmeldung deines Babys.
+            Persönlich, in der Schweiz, ohne komplizierte Recherche.
+          </p>
+
+          <!-- Trust-Liste -->
+          <ul class="hero-checks" aria-label="Vertrauenshinweise">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg> <span data-i18n="trust.free">Kostenlos &amp; unverbindlich</span></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg> <span data-i18n="trust.swiss">Schweizer Beratung</span></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg> <span data-i18n="trust.parents">Für werdende Eltern</span></li>
+          </ul>
+
+          <div class="hero-cta-row">
+            <a href="#formular" class="btn btn-primary btn-lg" data-i18n="hero.cta">Jetzt kostenlos anmelden
+              <svg class="ic-r" aria-hidden="true"><use href="#i-arrow"></use></svg>
+            </a>
+            <a href="#ablauf" class="btn btn-ghost btn-lg" data-i18n="hero.ctaSecondary">So funktioniert's</a>
+          </div>
+
+          <!-- Babyphone-Hinweis dezent -->
+          <p class="hero-gift-note">
+            <svg class="ic" aria-hidden="true"><use href="#i-gift"></use></svg>
+            <span data-i18n="hero.giftNote">Babyphone (CHF 149) als Dankeschön bei erfolgreicher Anmeldung*</span>
+          </p>
+        </div>
+
+        <!-- Formular bereits im Hero (Desktop) -->
+        <aside class="hero-form-card" id="formular" aria-labelledby="formTitle">
+          <div class="form-card-head">
+            <h2 class="form-title" id="formTitle" data-i18n="form.title">Kostenlose Beratung anfordern</h2>
+            <p class="form-lead" data-i18n="form.lead">
+              Trag dich ein, wir melden uns telefonisch oder per E-Mail. Keine Verpflichtung.
+            </p>
+          </div>
+
+          <form id="leadForm" novalidate>
+            <!-- Honeypot (versteckt, nicht ausfüllen) -->
+            <div class="hp-field" aria-hidden="true">
+              <label for="company">Firma (bitte leer lassen)</label>
+              <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <!-- Fortschritt (Endowed-Progress: startet nicht bei 0 %) -->
+            <div class="wizard-progress">
+              <div class="wizard-progress-bar"><span id="wizardBar" style="width:20%"></span></div>
+              <p class="wizard-progress-label">
+                <span class="wizard-step-count"><span id="wizardStepNow">1</span>/<span id="wizardStepTotal">4</span></span>
+                <span class="wizard-progress-dot" aria-hidden="true">·</span>
+                <span id="wizardProgressText" data-i18n="wizard.progressStart">Du hast schon angefangen</span>
+              </p>
+            </div>
+
+            <!-- SCHRITT 1: Geburtstermin (Foot-in-the-door + Reziprozität) -->
+            <div class="form-step is-active" data-step="1">
+              <h3 class="step-q" data-i18n="wizard.q1">Wann ist der errechnete Geburtstermin?</h3>
+              <p class="step-help" data-i18n="wizard.q1Help">Wir zeigen dir sofort, was wann zu erledigen ist.</p>
+              <div class="form-field">
+                <label for="dueDate" class="sr-only" data-i18n="form.dueDate">Errechneter Geburtstermin *</label>
+                <input type="date" id="dueDate" name="dueDate" required
+                       aria-required="true" aria-describedby="err-dueDate" />
+                <p class="field-error" id="err-dueDate" aria-live="polite"></p>
+              </div>
+
+              <!-- Countdown + persönliche Timeline (gibt, bevor es nimmt) -->
+              <div class="due-result" id="dueResult" hidden>
+                <div class="countdown-badge" id="countdownBadge"></div>
+                <div class="timeline" id="timeline" aria-live="polite"></div>
+              </div>
+
+              <div class="wizard-actions single">
+                <button type="button" class="btn btn-primary btn-lg btn-block" data-next>
+                  <span data-i18n="wizard.next">Weiter</span>
+                  <svg class="ic-r" aria-hidden="true"><use href="#i-arrow"></use></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- SCHRITT 2: PLZ → Ort automatisch -->
+            <div class="form-step" data-step="2">
+              <h3 class="step-q" data-i18n="wizard.q2">Wo wohnt ihr?</h3>
+              <p class="step-help" data-i18n="wizard.q2Help">Nur die PLZ, den Ort ergänzen wir automatisch.</p>
+              <div class="form-row two">
+                <div class="form-field">
+                  <label for="zip" data-i18n="form.zip">PLZ *</label>
+                  <input type="text" id="zip" name="zip" inputmode="numeric" maxlength="4" required
+                         aria-required="true" aria-describedby="err-zip" autocomplete="postal-code"
+                         placeholder="8000" />
+                  <p class="field-error" id="err-zip" aria-live="polite"></p>
+                </div>
+                <div class="form-field">
+                  <label for="ort" data-i18n="form.ort">Ort</label>
+                  <input type="text" id="ort" name="ort" autocomplete="address-level2"
+                         list="ortOptions" data-i18n-placeholder="form.ortPlaceholder" placeholder="wird ergänzt" />
+                  <datalist id="ortOptions"></datalist>
+                </div>
+              </div>
+              <div class="wizard-actions">
+                <button type="button" class="btn btn-ghost wizard-back" data-back>
+                  <span data-i18n="wizard.back">Zurück</span>
+                </button>
+                <button type="button" class="btn btn-primary wizard-grow" data-next>
+                  <span data-i18n="wizard.next">Weiter</span>
+                  <svg class="ic-r" aria-hidden="true"><use href="#i-arrow"></use></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- SCHRITT 3: Name -->
+            <div class="form-step" data-step="3">
+              <h3 class="step-q" data-i18n="wizard.q3">Wie heisst du?</h3>
+              <p class="step-help" data-i18n="wizard.q3Help">Damit wir dich persönlich ansprechen können.</p>
+              <div class="form-row two">
+                <div class="form-field">
+                  <label for="firstName" data-i18n="form.firstName">Vorname *</label>
+                  <input type="text" id="firstName" name="firstName" autocomplete="given-name" required
+                         aria-required="true" aria-describedby="err-firstName" />
+                  <p class="field-error" id="err-firstName" aria-live="polite"></p>
+                </div>
+                <div class="form-field">
+                  <label for="lastName" data-i18n="form.lastName">Nachname *</label>
+                  <input type="text" id="lastName" name="lastName" autocomplete="family-name" required
+                         aria-required="true" aria-describedby="err-lastName" />
+                  <p class="field-error" id="err-lastName" aria-live="polite"></p>
+                </div>
+              </div>
+              <div class="wizard-actions">
+                <button type="button" class="btn btn-ghost wizard-back" data-back>
+                  <span data-i18n="wizard.back">Zurück</span>
+                </button>
+                <button type="button" class="btn btn-primary wizard-grow" data-next>
+                  <span data-i18n="wizard.next">Weiter</span>
+                  <svg class="ic-r" aria-hidden="true"><use href="#i-arrow"></use></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- SCHRITT 4: Kontakt + Einwilligung + Absenden -->
+            <div class="form-step" data-step="4">
+              <h3 class="step-q" data-i18n="wizard.q4">Wie erreichen wir dich?</h3>
+              <p class="step-help" data-i18n="wizard.q4Help">Kostenlos und unverbindlich, du entscheidest in aller Ruhe.</p>
+              <div class="form-row two">
+                <div class="form-field">
+                  <label for="phone" data-i18n="form.phone">Telefonnummer *</label>
+                  <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required
+                         aria-required="true" aria-describedby="err-phone"
+                         data-i18n-placeholder="form.phonePlaceholder" placeholder="+41 79 123 45 67" />
+                  <p class="field-error" id="err-phone" aria-live="polite"></p>
+                </div>
+                <div class="form-field">
+                  <label for="email" data-i18n="form.email">E-Mail *</label>
+                  <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required
+                         aria-required="true" aria-describedby="err-email"
+                         placeholder="name@beispiel.ch" />
+                  <p class="field-error" id="err-email" aria-live="polite"></p>
+                </div>
+              </div>
+
+              <!-- Anker-Hinweis: konkreter Wert CHF 149 -->
+              <p class="wizard-anchor">
+                <svg class="ic" aria-hidden="true"><use href="#i-gift"></use></svg>
+                <span data-i18n="wizard.anchor">Nach erfolgreicher Anmeldung: Babyphone im Wert von CHF 149 als Dankeschön*</span>
+              </p>
+
+              <!-- Pflicht-Checkbox Datenschutz (NICHT vorausgewählt) -->
+              <div class="form-field checkbox-field">
+                <label class="checkbox">
+                  <input type="checkbox" id="privacy" name="privacy" required aria-required="true"
+                         aria-describedby="err-privacy" />
+                  <span class="checkbox-text"><span data-i18n="form.privacy">Ich akzeptiere die</span> <a href="REPLACE_PRIVACY_URL" target="_blank" rel="noopener" class="inline-link" data-i18n="form.privacyLink">Datenschutzerklärung</a><span data-i18n="form.privacyStar">. *</span></span>
+                </label>
+                <p class="field-error" id="err-privacy" aria-live="polite"></p>
+              </div>
+
+              <!-- Optionale Checkbox -->
+              <div class="form-field checkbox-field">
+                <label class="checkbox">
+                  <input type="checkbox" id="contactConsent" name="contactConsent" />
+                  <span class="checkbox-text" data-i18n="form.contactConsent">Ich möchte kontaktiert werden.</span>
+                </label>
+              </div>
+
+              <div class="wizard-actions">
+                <button type="button" class="btn btn-ghost wizard-back" data-back>
+                  <span data-i18n="wizard.back">Zurück</span>
+                </button>
+                <button type="submit" class="btn btn-primary btn-lg wizard-grow" id="submitBtn">
+                  <span class="btn-label" data-i18n="form.submit">Beratung anfordern</span>
+                  <span class="btn-spinner" aria-hidden="true"></span>
+                </button>
+              </div>
+
+              <p class="form-microcopy">
+                <svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg>
+                <span data-i18n="form.microcopy">Wir melden uns telefonisch oder per E-Mail. Keine Verpflichtung.</span>
+              </p>
+
+              <!-- Allgemeine Statusmeldung -->
+              <p class="form-status" id="formStatus" role="alert" aria-live="assertive" hidden></p>
+            </div>
+          </form>
+
+          <!-- Erfolgsmeldung (ersetzt Formular) -->
+          <div class="form-success" id="formSuccess" role="status" aria-live="polite" hidden tabindex="-1">
+            <div class="success-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="30" height="30"><use href="#i-check"></use></svg>
+            </div>
+            <h3 data-i18n="success.title">Danke, wir haben deine Anfrage erhalten!</h3>
+            <p data-i18n="success.text">Wir melden uns in Kürze bei dir. Du kannst auch direkt einen Termin buchen.</p>
+            <a href="REPLACE_CALENDLY_URL" target="_blank" rel="noopener" class="btn btn-primary btn-lg" id="calendlyBtn" data-i18n="success.calendly" hidden>
+              Beratungstermin direkt buchen
+            </a>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Trust-Leiste unter dem Hero -->
+      <div class="container">
+        <ul class="trust-strip" aria-label="Warum Express Vorgeburtlich">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-shield"></use></svg> <span data-i18n="strip.free">Kostenlos &amp; unverbindlich</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-heart"></use></svg> <span data-i18n="strip.swiss">Persönliche Schweizer Beratung</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-lock"></use></svg> <span data-i18n="strip.data">Daten vertraulich behandelt</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-clock"></use></svg> <span data-i18n="strip.fast">Schnelle Rückmeldung</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROBLEM
+         ============================================================ -->
+    <section class="section problem-section">
+      <div class="container narrow center">
+        <span class="eyebrow" data-i18n="problem.eyebrow">Die häufigsten Unsicherheiten</span>
+        <h2 class="section-title" data-i18n="problem.title">Kennst du diese Fragen?</h2>
+        <p class="section-lead" data-i18n="problem.lead">
+          Rund um die Geburt gibt es viel zu organisieren. Bei der Krankenkasse fürs Baby tauchen schnell Unsicherheiten auf.
+        </p>
+      </div>
+      <div class="container">
+        <div class="card-grid">
+          <div class="info-card">
+            <span class="info-ic" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
+            <p data-i18n="problem.q1">Welche Krankenkasse passt zu unserem Baby?</p>
+          </div>
+          <div class="info-card">
+            <span class="info-ic" aria-hidden="true"><svg><use href="#i-doc"></use></svg></span>
+            <p data-i18n="problem.q2">Brauchen wir eine Zusatzversicherung, und welche?</p>
+          </div>
+          <div class="info-card">
+            <span class="info-ic" aria-hidden="true"><svg><use href="#i-clock"></use></svg></span>
+            <p data-i18n="problem.q3">Was muss vor der Geburt erledigt sein?</p>
+          </div>
+          <div class="info-card">
+            <span class="info-ic" aria-hidden="true"><svg><use href="#i-stroller"></use></svg></span>
+            <p data-i18n="problem.q4">Was, wenn das Baby schon da ist?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         LÖSUNG
+         ============================================================ -->
+    <section class="section solution-section">
+      <div class="container split">
+        <div class="split-media">
+          <!-- Bild: werdende Eltern -->
+          <img src="assets/solution.jpg" alt="Werdende Eltern halten kleine Babyschuhe"
+               width="560" height="460" loading="lazy" class="rounded-img" />
+        </div>
+        <div class="split-copy">
+          <span class="eyebrow" data-i18n="solution.eyebrow">So unterstützen wir dich</span>
+          <h2 class="section-title" data-i18n="solution.title">Wir führen dich sauber durch den Prozess</h2>
+          <p class="section-lead" data-i18n="solution.lead">
+            Du musst nicht alles selbst recherchieren. Wir erklären dir verständlich, was wann zu tun ist,
+            und begleiten die Anmeldung deines Babys rechtzeitig und persönlich.
+          </p>
+          <ul class="check-list">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg> <span data-i18n="solution.p1">Verständliche Erklärung, ohne Fachjargon</span></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg> <span data-i18n="solution.p2">Rechtzeitig vor der Geburt erledigt</span></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg> <span data-i18n="solution.p3">Persönliche Beratung aus der Schweiz</span></li>
+          </ul>
+          <a href="#formular" class="btn btn-primary btn-lg" data-i18n="solution.cta">Jetzt kostenlos anmelden</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BABYPHONE-ABSCHNITT (transparent)
+         ============================================================ -->
+    <section class="section gift-section">
+      <div class="container split reverse">
+        <div class="split-media">
+          <!-- Bild: Neugeborenes -->
+          <img src="assets/babyphone.jpg" alt="Neugeborenes Baby, das Babyphone gibt's als Dankeschön"
+               width="520" height="440" loading="lazy" class="rounded-img" />
+        </div>
+        <div class="split-copy">
+          <span class="eyebrow eyebrow-rose" data-i18n="gift.badge">Unser Dankeschön</span>
+          <h2 class="section-title" data-i18n="gift.title">Ein Babyphone im Wert von CHF 149</h2>
+          <p class="section-lead" data-i18n="gift.lead">
+            Als Dankeschön für dein Vertrauen erhältst du ein Babyphone, bei erfolgreicher Anmeldung über uns
+            und gemäss den Kampagnenbedingungen. Das Babyphone ist ein nettes Extra, nicht der Hauptgrund.
+          </p>
+          <p class="fineprint" data-i18n="gift.condition">
+            * Erhältlich ausschliesslich bei erfolgreicher Anmeldung über uns und nach erfüllten Kampagnenbedingungen.
+          </p>
+          <a href="#formular" class="btn btn-primary btn-lg" data-i18n="gift.cta">Jetzt anmelden</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABLAUF IN 3 SCHRITTEN
+         ============================================================ -->
+    <section class="section steps-section" id="ablauf">
+      <div class="container">
+        <div class="center">
+          <span class="eyebrow" data-i18n="steps.eyebrow">In 3 Schritten</span>
+          <h2 class="section-title" data-i18n="steps.title">So einfach geht's</h2>
+        </div>
+        <ol class="steps-grid">
+          <li class="step-card">
+            <span class="step-ic" aria-hidden="true"><svg><use href="#i-doc"></use></svg></span>
+            <span class="step-num" aria-hidden="true">01</span>
+            <h3 data-i18n="steps.s1Title">Formular ausfüllen</h3>
+            <p data-i18n="steps.s1Text">Trag deine Angaben ein, in weniger als zwei Minuten.</p>
+          </li>
+          <li class="step-card">
+            <span class="step-ic" aria-hidden="true"><svg><use href="#i-chat"></use></svg></span>
+            <span class="step-num" aria-hidden="true">02</span>
+            <h3 data-i18n="steps.s2Title">Kurzes Gespräch</h3>
+            <p data-i18n="steps.s2Text">Wir melden uns und klären deine Fragen, kostenlos und unverbindlich.</p>
+          </li>
+          <li class="step-card">
+            <span class="step-ic" aria-hidden="true"><svg><use href="#i-gift"></use></svg></span>
+            <span class="step-num" aria-hidden="true">03</span>
+            <h3 data-i18n="steps.s3Title">Anmeldung &amp; Babyphone</h3>
+            <p data-i18n="steps.s3Text">Wir schliessen die Anmeldung ab, dein Babyphone gibt's als Dankeschön.*</p>
+          </li>
+        </ol>
+        <div class="center">
+          <a href="#formular" class="btn btn-primary btn-lg" data-i18n="steps.cta">Jetzt starten</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VORTEILE (Benefit-Grid)
+         ============================================================ -->
+    <section class="section benefits-section" id="vorteile">
+      <div class="container">
+        <div class="center">
+          <span class="eyebrow" data-i18n="benefits.eyebrow">Deine Vorteile</span>
+          <h2 class="section-title" data-i18n="benefits.title">Darum lohnt sich die frühzeitige Anmeldung</h2>
+        </div>
+        <div class="benefit-grid">
+          <div class="benefit-card"><span class="benefit-ic" aria-hidden="true"><svg><use href="#i-clock"></use></svg></span><h3 data-i18n="benefits.b1">Frühzeitig erledigt</h3></div>
+          <div class="benefit-card"><span class="benefit-ic" aria-hidden="true"><svg><use href="#i-heart"></use></svg></span><h3 data-i18n="benefits.b2">Kostenlos &amp; unverbindlich</h3></div>
+          <div class="benefit-card"><span class="benefit-ic" aria-hidden="true"><svg><use href="#i-user"></use></svg></span><h3 data-i18n="benefits.b3">Persönliche Unterstützung</h3></div>
+          <div class="benefit-card"><span class="benefit-ic" aria-hidden="true"><svg><use href="#i-search"></use></svg></span><h3 data-i18n="benefits.b4">Keine komplizierte Recherche</h3></div>
+          <div class="benefit-card"><span class="benefit-ic" aria-hidden="true"><svg><use href="#i-stroller"></use></svg></span><h3 data-i18n="benefits.b5">Für werdende Eltern</h3></div>
+          <div class="benefit-card"><span class="benefit-ic" aria-hidden="true"><svg><use href="#i-gift"></use></svg></span><h3 data-i18n="benefits.b6">Babyphone als Dankeschön*</h3></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ZWEITER FORMULAR-ANKER (für Mobile-Fluss)
+         ============================================================ -->
+    <section class="section form-recall-section">
+      <div class="container narrow center">
+        <h2 class="section-title" data-i18n="formRecall.title">Bereit? Fordere deine kostenlose Beratung an</h2>
+        <p class="section-lead" data-i18n="formRecall.lead">
+          Wir melden uns telefonisch oder per E-Mail. Keine Verpflichtung.
+        </p>
+        <a href="#formular" class="btn btn-primary btn-lg" data-i18n="formRecall.cta">Zum Formular</a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ (Akkordeon)
+         ============================================================ -->
+    <section class="section faq-section" id="faq">
+      <div class="container narrow">
+        <div class="center">
+          <span class="eyebrow" data-i18n="faq.eyebrow">FAQ</span>
+          <h2 class="section-title" data-i18n="faq.title">Häufige Fragen</h2>
+        </div>
+        <div class="faq-list">
+
+          <details class="faq-item">
+            <summary><span data-i18n="faq.q1">Was ist eine vorgeburtliche Krankenkassenanmeldung?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p data-i18n="faq.a1">Es ist die Anmeldung deines Babys bei der Krankenkasse bereits vor der Geburt. So ist alles vorbereitet und die Versicherung kann fristgerecht starten, sobald dein Baby da ist.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span data-i18n="faq.q2">Warum vor der Geburt anmelden?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p data-i18n="faq.a2">Wer frühzeitig anmeldet, hat den Kopf nach der Geburt frei und vermeidet Zeitdruck. Du kannst Optionen in Ruhe vergleichen, statt alles in den ersten hektischen Wochen zu erledigen.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span data-i18n="faq.q3">Ist die Beratung kostenlos?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p data-i18n="faq.a3">Ja. Die Beratung ist komplett kostenlos und unverbindlich. Es entstehen dir keine Kosten und du gehst keine Verpflichtung ein.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span data-i18n="faq.q4">Bekomme ich das Babyphone garantiert?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p data-i18n="faq.a4">Das Babyphone ist ein Dankeschön bei erfolgreicher Anmeldung über uns und nach erfüllten Kampagnenbedingungen. Es ist ein nettes Extra, nicht der Hauptgrund für die Beratung.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span data-i18n="faq.q5">Was bedeutet «erfolgreiche Anmeldung»?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p data-i18n="faq.a5">Eine erfolgreiche Anmeldung bedeutet, dass die vorgeburtliche Krankenkassenanmeldung deines Babys über uns abgeschlossen wird. Die genauen Bedingungen findest du in den Kampagnenbedingungen.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span data-i18n="faq.q6">Kann ich mich melden, wenn das Baby schon geboren ist?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p data-i18n="faq.a6">Ja, melde dich trotzdem. Wir schauen gemeinsam, was in deiner Situation sinnvoll ist und welche Schritte noch offen sind.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span data-i18n="faq.q7">Welche Angaben brauche ich?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p data-i18n="faq.a7">Für den Start genügen Name, Telefonnummer, E-Mail, PLZ und der errechnete Geburtstermin. Alles Weitere besprechen wir im persönlichen Gespräch.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span data-i18n="faq.q8">Muss ich direkt etwas unterschreiben?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p data-i18n="faq.a8">Nein. Mit dem Formular forderst du nur die kostenlose Beratung an. Du entscheidest in aller Ruhe und gehst keine Verpflichtung ein.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span data-i18n="faq.q9">Werde ich telefonisch kontaktiert?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p data-i18n="faq.a9">Wir melden uns telefonisch oder per E-Mail, je nachdem, wie es dir am besten passt. Du kannst das im Gespräch jederzeit sagen.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span data-i18n="faq.q10">Gilt das Angebot in der ganzen Schweiz?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p data-i18n="faq.a10">Ja, unsere Beratung richtet sich an werdende Eltern in der ganzen Deutschschweiz und darüber hinaus.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span data-i18n="faq.q11">Geht die Beratung auch auf EN/FR/IT?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p data-i18n="faq.a11">Diese Seite ist auf Deutsch, Englisch, Französisch und Italienisch verfügbar. Sag uns einfach, in welcher Sprache du dich am wohlsten fühlst.</p></div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABSCHLUSS-CTA
+         ============================================================ -->
+    <section class="section final-cta">
+      <div class="container">
+        <div class="final-cta-inner center">
+          <h2 class="final-title" data-i18n="finalCta.title">Erledige die Anmeldung fürs Baby frühzeitig und stressfrei.</h2>
+          <p class="final-lead" data-i18n="finalCta.lead">
+            Kostenlos, unverbindlich und persönlich. Wir begleiten dich Schritt für Schritt.
+          </p>
+          <a href="#formular" class="btn btn-light btn-lg" data-i18n="finalCta.cta">Jetzt kostenlos anmelden
+            <svg class="ic-r" aria-hidden="true"><use href="#i-arrow"></use></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-text footer-logo">Express<span class="logo-accent">Vorgeburtlich</span></span>
+        <p class="footer-tagline" data-i18n="footer.tagline">Kostenlose, unverbindliche Beratung zur vorgeburtlichen Krankenkassenanmeldung fürs Baby.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer-Navigation">
+        <a href="REPLACE_IMPRINT_URL" data-i18n="footer.imprint">Impressum</a>
+        <a href="REPLACE_PRIVACY_URL" data-i18n="footer.privacy">Datenschutz</a>
+        <a href="#formular" data-i18n="footer.contact">Kontakt</a>
+        <a href="mailto:REPLACE_EMAIL" id="footerEmail">REPLACE_EMAIL</a>
+        <a href="tel:REPLACE_PHONE" id="footerPhone">REPLACE_PHONE</a>
+      </nav>
+    </div>
+    <div class="container footer-legal-wrap">
+      <p class="legal-note" data-i18n="footer.legal">
+        Hinweis: Wir geben kein Versicherungsversprechen ab. Die Beratung ist kostenlos und unverbindlich.
+        Das Babyphone ist ein Dankeschön bei erfolgreicher Anmeldung über uns und gemäss den Kampagnenbedingungen.
+      </p>
+      <p class="legal-note">© <span id="year">2026</span> Express Vorgeburtlich · express-vorgeburtlich.ch</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       Sticky Mobile-CTA-Leiste
+       ============================================================ -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="#formular" class="btn btn-primary btn-block" data-i18n="sticky.cta">Jetzt kostenlos anmelden</a>
+  </div>
+
+  <!-- ============================================================
+       Optionaler WhatsApp-Floating-Button (JS blendet ihn ein)
+       ============================================================ -->
+  <a href="#" class="whatsapp-fab" id="whatsappFab" aria-label="WhatsApp Chat" hidden>
+    <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="currentColor">
+      <path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.1 1.6 5.9L4 29l8.3-1.6c1.7.9 3.6 1.4 5.7 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.3l-.4-.2-4.9 1 1-4.8-.3-.4C5.6 18.4 5 16.7 5 15 5 9 9.9 4.1 16 4.1S27 9 27 15 22.1 24.8 16 24.8z"/>
+    </svg>
+  </a>
+
+  <!-- ============================================================
+       Exit-Intent-Reminder (freundlich, keine Falle): JS steuert Anzeige
+       ============================================================ -->
+  <div class="exit-modal" id="exitModal" role="dialog" aria-modal="true"
+       aria-labelledby="exitTitle" aria-describedby="exitText" hidden>
+    <div class="exit-card" role="document">
+      <button type="button" class="exit-close" data-close aria-label="Schliessen">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="exit-icon" aria-hidden="true">
+        <svg class="ic" aria-hidden="true"><use href="#i-clock"></use></svg>
+      </div>
+      <h3 id="exitTitle" data-i18n="exit.title">Termin noch nicht eingetragen?</h3>
+      <p id="exitText" data-i18n="exit.text">Dauert nur 30 Sekunden, und du siehst sofort deine persönliche Anmelde-Timeline.</p>
+      <button type="button" class="btn btn-primary btn-lg btn-block" data-focus-form data-i18n="exit.cta">Jetzt in 30 Sekunden starten</button>
+      <button type="button" class="exit-dismiss" data-close data-i18n="exit.dismiss">Später</button>
+    </div>
+  </div>
+
+  <script src="script.js?v=10"></script>
+</body>
+</html>
