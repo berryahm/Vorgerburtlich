@@ -71,7 +71,7 @@ const I18N = {
     "strip.data": "Daten vertraulich behandelt",
     "strip.fast": "Schnelle Rückmeldung",
 
-    "form.title": "Kostenlose Beratung anfordern",
+    "form.title": "In 2 Minuten unverbindlich starten",
     "form.lead": "Trag dich ein, wir melden uns telefonisch oder per E-Mail. Keine Verpflichtung.",
     "form.firstName": "Vorname *",
     "form.lastName": "Nachname *",
@@ -86,7 +86,7 @@ const I18N = {
     "form.privacyLink": "Datenschutzerklärung",
     "form.privacyStar": ". *",
     "form.contactConsent": "Ich möchte kontaktiert werden.",
-    "form.submit": "Beratung anfordern",
+    "form.submit": "Unverbindlich anfragen",
     "form.microcopy": "Wir melden uns telefonisch oder per E-Mail. Keine Verpflichtung.",
 
     "err.required": "Bitte fülle dieses Feld aus.",
@@ -260,7 +260,7 @@ const I18N = {
     "strip.data": "Data treated confidentially",
     "strip.fast": "Fast response",
 
-    "form.title": "Request free guidance",
+    "form.title": "Get started in 2 minutes, no obligation",
     "form.lead": "Sign up, we'll get in touch by phone or email. No obligation.",
     "form.firstName": "First name *",
     "form.lastName": "Last name *",
@@ -275,7 +275,7 @@ const I18N = {
     "form.privacyLink": "privacy policy",
     "form.privacyStar": ". *",
     "form.contactConsent": "I would like to be contacted.",
-    "form.submit": "Request guidance",
+    "form.submit": "Enquire, no obligation",
     "form.microcopy": "We'll get in touch by phone or email. No obligation.",
 
     "err.required": "Please fill in this field.",
@@ -449,7 +449,7 @@ const I18N = {
     "strip.data": "Données traitées confidentiellement",
     "strip.fast": "Réponse rapide",
 
-    "form.title": "Demander un conseil gratuit",
+    "form.title": "Commencez en 2 minutes, sans engagement",
     "form.lead": "Inscrivez-vous, nous vous contactons par téléphone ou e-mail. Sans engagement.",
     "form.firstName": "Prénom *",
     "form.lastName": "Nom *",
@@ -464,7 +464,7 @@ const I18N = {
     "form.privacyLink": "politique de confidentialité",
     "form.privacyStar": ". *",
     "form.contactConsent": "Je souhaite être contacté(e).",
-    "form.submit": "Demander un conseil",
+    "form.submit": "Demander sans engagement",
     "form.microcopy": "Nous vous contactons par téléphone ou e-mail. Sans engagement.",
 
     "err.required": "Veuillez remplir ce champ.",
@@ -638,7 +638,7 @@ const I18N = {
     "strip.data": "Dati trattati in modo riservato",
     "strip.fast": "Risposta rapida",
 
-    "form.title": "Richiedi una consulenza gratuita",
+    "form.title": "Inizia in 2 minuti, senza impegno",
     "form.lead": "Iscriviti, ti contattiamo per telefono o e-mail. Senza impegno.",
     "form.firstName": "Nome *",
     "form.lastName": "Cognome *",
@@ -653,7 +653,7 @@ const I18N = {
     "form.privacyLink": "informativa sulla privacy",
     "form.privacyStar": ". *",
     "form.contactConsent": "Desidero essere contattato/a.",
-    "form.submit": "Richiedi consulenza",
+    "form.submit": "Richiedi senza impegno",
     "form.microcopy": "Ti contattiamo per telefono o e-mail. Senza impegno.",
 
     "err.required": "Compila questo campo.",
