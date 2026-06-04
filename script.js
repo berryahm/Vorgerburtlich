@@ -65,6 +65,7 @@ const I18N = {
     "trust.free": "Kostenlos & unverbindlich",
     "trust.swiss": "Schweizer Beratung",
     "trust.parents": "Für werdende Eltern",
+    "trust.noRisk": "Ohne Risikoprüfung, auch bei Geburtsgebrechen",
 
     "strip.free": "Kostenlos & unverbindlich",
     "strip.swiss": "Persönliche Schweizer Beratung",
@@ -141,7 +142,7 @@ const I18N = {
     "benefits.b1": "Frühzeitig erledigt",
     "benefits.b2": "Kostenlos & unverbindlich",
     "benefits.b3": "Persönliche Unterstützung",
-    "benefits.b4": "Keine komplizierte Recherche",
+    "benefits.b4": "Ohne Risikoprüfung",
     "benefits.b5": "Für werdende Eltern",
     "benefits.b6": "Babyphone als Dankeschön*",
 
@@ -254,6 +255,7 @@ const I18N = {
     "trust.free": "Free & no obligation",
     "trust.swiss": "Swiss advice",
     "trust.parents": "For expecting parents",
+    "trust.noRisk": "No health check, even with conditions",
 
     "strip.free": "Free & no obligation",
     "strip.swiss": "Personal Swiss advice",
@@ -330,7 +332,7 @@ const I18N = {
     "benefits.b1": "Done in time",
     "benefits.b2": "Free & no obligation",
     "benefits.b3": "Personal support",
-    "benefits.b4": "No complicated research",
+    "benefits.b4": "No health check",
     "benefits.b5": "For expecting parents",
     "benefits.b6": "Baby monitor as a thank-you*",
 
@@ -443,6 +445,7 @@ const I18N = {
     "trust.free": "Gratuit et sans engagement",
     "trust.swiss": "Conseil suisse",
     "trust.parents": "Pour les futurs parents",
+    "trust.noRisk": "Sans examen de santé, même en cas d'affection",
 
     "strip.free": "Gratuit et sans engagement",
     "strip.swiss": "Conseil suisse personnel",
@@ -519,7 +522,7 @@ const I18N = {
     "benefits.b1": "Réglé à temps",
     "benefits.b2": "Gratuit et sans engagement",
     "benefits.b3": "Accompagnement personnel",
-    "benefits.b4": "Pas de recherche compliquée",
+    "benefits.b4": "Sans examen de santé",
     "benefits.b5": "Pour les futurs parents",
     "benefits.b6": "Babyphone en remerciement*",
 
@@ -632,6 +635,7 @@ const I18N = {
     "trust.free": "Gratuito e senza impegno",
     "trust.swiss": "Consulenza svizzera",
     "trust.parents": "Per i futuri genitori",
+    "trust.noRisk": "Senza esame sanitario, anche con patologie",
 
     "strip.free": "Gratuito e senza impegno",
     "strip.swiss": "Consulenza svizzera personale",
@@ -708,7 +712,7 @@ const I18N = {
     "benefits.b1": "Sistemato in tempo",
     "benefits.b2": "Gratuito e senza impegno",
     "benefits.b3": "Supporto personale",
-    "benefits.b4": "Nessuna ricerca complicata",
+    "benefits.b4": "Senza esame sanitario",
     "benefits.b5": "Per i futuri genitori",
     "benefits.b6": "Baby monitor come ringraziamento*",
 
