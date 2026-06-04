@@ -197,6 +197,16 @@ a { color: var(--brand); }
 }
 .hero-gift-note .ic { color: var(--rose-ink); }
 
+.hero-urgency {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 14px; font-weight: 600; line-height: 1.35;
+  color: var(--rose-ink); background: var(--rose-soft);
+  border-left: 4px solid var(--rose);
+  padding: 12px 16px; border-radius: var(--r-sm);
+  margin: 0 0 var(--sp-3);
+}
+.hero-urgency .ic { color: var(--rose-ink); flex-shrink: 0; width: 22px; height: 22px; }
+
 /* Hero-Formularkarte */
 .hero-form-card {
   background: var(--bg-card);

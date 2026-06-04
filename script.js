@@ -61,6 +61,7 @@ const I18N = {
     "hero.cta": "Jetzt kostenlos anmelden",
     "hero.ctaSecondary": "So funktioniert's",
     "hero.giftNote": "Babyphone (CHF 149) als Dankeschön bei erfolgreicher Anmeldung*",
+    "hero.urgency": "Wichtig: Nach der Geburt droht bei einem Leiden die Ablehnung der Zusatzversicherung.",
 
     "trust.free": "Kostenlos & unverbindlich",
     "trust.swiss": "Schweizer Beratung",
@@ -251,6 +252,7 @@ const I18N = {
     "hero.cta": "Get free guidance now",
     "hero.ctaSecondary": "How it works",
     "hero.giftNote": "Baby monitor (CHF 149) as a thank-you upon successful registration*",
+    "hero.urgency": "Important: after the birth, a pre-existing condition can lead to refusal of the supplementary insurance.",
 
     "trust.free": "Free & no obligation",
     "trust.swiss": "Swiss advice",
@@ -441,6 +443,7 @@ const I18N = {
     "hero.cta": "S'inscrire gratuitement",
     "hero.ctaSecondary": "Comment ça marche",
     "hero.giftNote": "Babyphone (CHF 149) en remerciement en cas d'inscription réussie*",
+    "hero.urgency": "Important : après la naissance, une affection peut entraîner le refus de l'assurance complémentaire.",
 
     "trust.free": "Gratuit et sans engagement",
     "trust.swiss": "Conseil suisse",
@@ -631,6 +634,7 @@ const I18N = {
     "hero.cta": "Iscriviti gratis ora",
     "hero.ctaSecondary": "Come funziona",
     "hero.giftNote": "Baby monitor (CHF 149) come ringraziamento con iscrizione riuscita*",
+    "hero.urgency": "Importante: dopo la nascita, una patologia può portare al rifiuto dell'assicurazione complementare.",
 
     "trust.free": "Gratuito e senza impegno",
     "trust.swiss": "Consulenza svizzera",
