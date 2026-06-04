@@ -590,6 +590,10 @@ body.modal-open { overflow: hidden; }
   .lang-btn { padding: 5px 7px; font-size: 11px; }
   .nav-toggle { width: 40px; height: 40px; padding: 9px; }
 
+  /* Trust-Leiste einspaltig: Text bekommt volle Breite, kein Umbruch/Overlap
+     mehr durch den WhatsApp-Button */
+  .trust-strip { grid-template-columns: 1fr; gap: var(--sp-1); }
+
   /* Sektionen enger schachteln */
   .section { padding: var(--sp-5) 0; }              /* 72 -> 48 */
   .hero { padding: var(--sp-4) 0 var(--sp-4); }     /* 48 -> 32 */
