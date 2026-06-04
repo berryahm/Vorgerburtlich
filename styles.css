@@ -214,6 +214,7 @@ a { color: var(--brand); }
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--border);
   padding: var(--sp-4);
+  order: -1;                 /* Mobil: Formular zuoberst */
 }
 .form-card-head { margin-bottom: var(--sp-3); }
 .form-title { font-size: 23px; margin-bottom: 6px; }
@@ -679,6 +680,7 @@ body.modal-open { overflow: hidden; }
 
   .hero { padding: var(--sp-6) 0 var(--sp-5); }
   .hero-grid { grid-template-columns: 1.05fr 0.95fr; gap: var(--sp-5); align-items: center; }
+  .hero-form-card { order: 0; }     /* Desktop: wieder rechts neben dem Text */
   .split { grid-template-columns: 1fr 1fr; gap: var(--sp-5); }
   .split.reverse .split-media { order: 2; }
   .benefit-grid { grid-template-columns: repeat(3, 1fr); }
