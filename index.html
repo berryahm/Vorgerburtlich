@@ -66,7 +66,7 @@
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
 
-  <link rel="stylesheet" href="styles.css?v=16" />
+  <link rel="stylesheet" href="styles.css?v=23" />
 
   <!-- ============================================================
        Strukturierte Daten (Schema.org JSON-LD)
@@ -384,6 +384,39 @@
                 </div>
               </div>
 
+              <!-- Optional: Anmeldung bei aktueller Krankenkasse -->
+              <div class="form-field checkbox-field">
+                <label class="checkbox">
+                  <input type="checkbox" id="keepInsurer" name="keepInsurer" aria-controls="insurerWrap" aria-expanded="false" />
+                  <span class="checkbox-text" data-i18n="form.keepInsurer">Ich möchte die Anmeldung bei meiner aktuellen Krankenkasse.</span>
+                </label>
+              </div>
+              <div class="form-field insurer-wrap" id="insurerWrap" hidden>
+                <label for="insurer" data-i18n="form.insurer">Aktuelle Krankenkasse</label>
+                <select id="insurer" name="insurer" autocomplete="off">
+                  <option value="" data-i18n="form.insurerPlaceholder">Bitte wählen …</option>
+                  <option value="Agrisano">Agrisano</option>
+                  <option value="Assura">Assura</option>
+                  <option value="Atupri">Atupri</option>
+                  <option value="Concordia">Concordia</option>
+                  <option value="CSS">CSS</option>
+                  <option value="EGK">EGK</option>
+                  <option value="Groupe Mutuel">Groupe Mutuel</option>
+                  <option value="Helsana">Helsana</option>
+                  <option value="KPT">KPT</option>
+                  <option value="ÖKK">ÖKK</option>
+                  <option value="Sanitas">Sanitas</option>
+                  <option value="Swica">Swica</option>
+                  <option value="Sympany">Sympany</option>
+                  <option value="Visana">Visana</option>
+                  <option value="other" data-i18n="form.insurerOther">Andere</option>
+                </select>
+                <p class="insurer-note">
+                  <svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>
+                  <span data-i18n="form.insurerNote">Wir berücksichtigen deinen Wunsch gerne und melden dein Baby bei deiner aktuellen Krankenkasse an.</span>
+                </p>
+              </div>
+
               <!-- Anker-Hinweis: konkreter Wert CHF 149 -->
               <p class="wizard-anchor">
                 <svg class="ic" aria-hidden="true"><use href="#i-gift"></use></svg>
@@ -520,7 +553,7 @@
       <div class="container split reverse">
         <div class="split-media">
           <!-- Bild: Babyphone (Philips Avent) als Dankeschoen, freigestellt -->
-          <img src="assets/babyphone.png?v=22" alt="Philips Avent Babyphone mit Kamera und Tasche, das Dankeschoen bei erfolgreicher Anmeldung"
+          <img src="assets/babyphone.png?v=23" alt="Philips Avent Babyphone mit Kamera und Tasche, das Dankeschoen bei erfolgreicher Anmeldung"
                width="520" height="520" loading="lazy" class="rounded-img gift-img" />
         </div>
         <div class="split-copy">
@@ -801,6 +834,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=16"></script>
+  <script src="script.js?v=23"></script>
 </body>
 </html>

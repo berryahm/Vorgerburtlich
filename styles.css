@@ -363,6 +363,29 @@ a { color: var(--brand); }
 }
 .wizard-anchor .ic { color: var(--rose-ink); flex: 0 0 auto; }
 
+/* Wunsch-Krankenkasse: Dropdown + Hinweis */
+.form-field select {
+  font-family: var(--font); font-size: 16px; padding: 13px 14px;
+  border: 1.5px solid var(--border-strong); border-radius: var(--r-sm);
+  background: #fff; color: var(--text); width: 100%; min-height: 50px;
+  -webkit-appearance: none; appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%239A463C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center;
+  padding-right: 40px;
+  transition: border-color .15s, box-shadow .15s;
+}
+.form-field select:focus {
+  border-color: var(--brand); outline: none;
+  box-shadow: 0 0 0 3px rgba(31, 111, 139, 0.16);
+}
+.insurer-wrap[hidden] { display: none; }
+.insurer-note {
+  display: flex; align-items: flex-start; gap: 8px;
+  color: var(--rose-ink); font-size: 13px; font-weight: 600; line-height: 1.4;
+  margin: 8px 0 0;
+}
+.insurer-note .ic { color: var(--rose-ink); flex: 0 0 auto; width: 18px; height: 18px; margin-top: 1px; }
+
 /* Countdown-Badge */
 .due-result { margin: var(--sp-2) 0 var(--sp-3); }
 .countdown-badge {

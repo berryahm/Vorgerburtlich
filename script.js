@@ -88,6 +88,11 @@ const I18N = {
     "form.privacyLink": "Datenschutzerklärung",
     "form.privacyStar": ". *",
     "form.contactConsent": "Ich möchte kontaktiert werden.",
+    "form.keepInsurer": "Ich möchte die Anmeldung bei meiner aktuellen Krankenkasse.",
+    "form.insurer": "Aktuelle Krankenkasse",
+    "form.insurerPlaceholder": "Bitte wählen …",
+    "form.insurerOther": "Andere",
+    "form.insurerNote": "Wir berücksichtigen deinen Wunsch gerne und melden dein Baby bei deiner aktuellen Krankenkasse an.",
     "form.submit": "Unverbindlich anfragen",
     "form.microcopy": "Wir melden uns telefonisch oder per E-Mail. Keine Verpflichtung.",
 
@@ -279,6 +284,11 @@ const I18N = {
     "form.privacyLink": "privacy policy",
     "form.privacyStar": ". *",
     "form.contactConsent": "I would like to be contacted.",
+    "form.keepInsurer": "I would like to register with my current health insurer.",
+    "form.insurer": "Current health insurer",
+    "form.insurerPlaceholder": "Please select …",
+    "form.insurerOther": "Other",
+    "form.insurerNote": "We will gladly take your wish into account and register your baby with your current health insurer.",
     "form.submit": "Enquire, no obligation",
     "form.microcopy": "We'll get in touch by phone or email. No obligation.",
 
@@ -470,6 +480,11 @@ const I18N = {
     "form.privacyLink": "politique de confidentialité",
     "form.privacyStar": ". *",
     "form.contactConsent": "Je souhaite être contacté(e).",
+    "form.keepInsurer": "Je souhaite m'inscrire auprès de ma caisse maladie actuelle.",
+    "form.insurer": "Caisse maladie actuelle",
+    "form.insurerPlaceholder": "Veuillez choisir …",
+    "form.insurerOther": "Autre",
+    "form.insurerNote": "Nous tiendrons volontiers compte de votre souhait et inscrirons votre bébé auprès de votre caisse maladie actuelle.",
     "form.submit": "Demander sans engagement",
     "form.microcopy": "Nous vous contactons par téléphone ou e-mail. Sans engagement.",
 
@@ -661,6 +676,11 @@ const I18N = {
     "form.privacyLink": "informativa sulla privacy",
     "form.privacyStar": ". *",
     "form.contactConsent": "Desidero essere contattato/a.",
+    "form.keepInsurer": "Desidero iscrivermi presso la mia cassa malati attuale.",
+    "form.insurer": "Cassa malati attuale",
+    "form.insurerPlaceholder": "Si prega di scegliere …",
+    "form.insurerOther": "Altra",
+    "form.insurerNote": "Terremo volentieri conto del tuo desiderio e iscriveremo il tuo bambino presso la tua cassa malati attuale.",
     "form.submit": "Richiedi senza impegno",
     "form.microcopy": "Ti contattiamo per telefono o e-mail. Senza impegno.",
 
@@ -983,7 +1003,7 @@ function validateForm(form) {
    ============================================================ */
 const LeadDraft = (function () {
   const KEY = "ev_lead_draft";
-  const FIELD_IDS = ["dueDate", "zip", "ort", "firstName", "lastName", "phone", "email"];
+  const FIELD_IDS = ["dueDate", "zip", "ort", "firstName", "lastName", "phone", "email", "insurer"];
   let lastSentHash = "";
 
   function form() { return document.getElementById("leadForm"); }
@@ -1115,6 +1135,27 @@ function initForm() {
   const privacy = form.elements["privacy"];
   if (privacy) privacy.addEventListener("change", () => validateField(privacy));
 
+  // Wunsch-Krankenkasse: Dropdown nur bei aktivierter Checkbox zeigen
+  const keepInsurer = form.elements["keepInsurer"];
+  const insurerWrap = document.getElementById("insurerWrap");
+  const insurerSelect = form.elements["insurer"];
+  if (keepInsurer && insurerWrap) {
+    function syncInsurer() {
+      const on = keepInsurer.checked;
+      insurerWrap.hidden = !on;
+      keepInsurer.setAttribute("aria-expanded", on ? "true" : "false");
+      if (!on && insurerSelect) insurerSelect.value = "";
+      if (on && insurerSelect) setTimeout(() => insurerSelect.focus(), 60);
+    }
+    keepInsurer.addEventListener("change", syncInsurer);
+    // Resume: war zuvor eine Krankenkasse gewaehlt, Block wieder aufklappen
+    if (insurerSelect && insurerSelect.value) {
+      keepInsurer.checked = true;
+      insurerWrap.hidden = false;
+      keepInsurer.setAttribute("aria-expanded", "true");
+    }
+  }
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (isSubmitting) return; // Doppel-Submit verhindern
@@ -1144,6 +1185,8 @@ function initForm() {
       ort: form.elements["ort"] ? form.elements["ort"].value.trim() : "",
       dueDate: form.elements["dueDate"].value,
       address: form.elements["address"] ? form.elements["address"].value.trim() : "",
+      keepInsurer: form.elements["keepInsurer"] ? form.elements["keepInsurer"].checked : false,
+      insurer: form.elements["insurer"] ? form.elements["insurer"].value : "",
       contactConsent: form.elements["contactConsent"].checked,
       privacyConsent: form.elements["privacy"].checked,
       draftId: LeadDraft.getId(),
