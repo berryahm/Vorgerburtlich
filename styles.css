@@ -236,6 +236,25 @@ a { color: var(--brand); }
   background: #fff; color: var(--text); width: 100%;
   transition: border-color .15s, box-shadow .15s;
 }
+
+/* Datumsfeld: iOS/Safari richtet den Wert sonst zentriert/verschoben aus.
+   Hier linksbuendig und gleiche Hoehe wie die anderen Felder erzwingen. */
+.form-field input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 50px;
+  text-align: left;
+  display: block;
+}
+.form-field input[type="date"]::-webkit-date-and-time-value {
+  text-align: left;
+  margin: 0;
+}
+.form-field input[type="date"]::-webkit-calendar-picker-indicator {
+  margin-left: auto;
+  opacity: .6;
+}
+
 .form-field input::placeholder { color: #b3a99c; }
 .form-field input:focus {
   border-color: var(--brand); outline: none;
