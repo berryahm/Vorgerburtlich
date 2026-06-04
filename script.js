@@ -91,7 +91,7 @@ const I18N = {
     "form.insurer": "Aktuelle Krankenkasse",
     "form.insurerPlaceholder": "Bitte wählen …",
     "form.insurerOther": "Andere",
-    "form.insurerNote": "Wir berücksichtigen deinen Wunsch und besprechen alles im persönlichen Gespräch.",
+    "form.insurerNote": "Wir berücksichtigen deinen Wunsch gerne.",
     "form.submit": "Unverbindlich anfragen",
     "form.microcopy": "Wir melden uns telefonisch oder per E-Mail. Keine Verpflichtung.",
 
@@ -286,7 +286,7 @@ const I18N = {
     "form.insurer": "Current health insurer",
     "form.insurerPlaceholder": "Please select …",
     "form.insurerOther": "Other",
-    "form.insurerNote": "We'll take your wish into account and discuss everything in a personal conversation.",
+    "form.insurerNote": "We'll gladly take your wish into account.",
     "form.submit": "Enquire, no obligation",
     "form.microcopy": "We'll get in touch by phone or email. No obligation.",
 
@@ -481,7 +481,7 @@ const I18N = {
     "form.insurer": "Caisse maladie actuelle",
     "form.insurerPlaceholder": "Veuillez choisir …",
     "form.insurerOther": "Autre",
-    "form.insurerNote": "Nous tiendrons compte de votre souhait et en discuterons lors d'un entretien personnel.",
+    "form.insurerNote": "Nous tiendrons volontiers compte de votre souhait.",
     "form.submit": "Demander sans engagement",
     "form.microcopy": "Nous vous contactons par téléphone ou e-mail. Sans engagement.",
 
@@ -676,7 +676,7 @@ const I18N = {
     "form.insurer": "Cassa malati attuale",
     "form.insurerPlaceholder": "Si prega di scegliere …",
     "form.insurerOther": "Altra",
-    "form.insurerNote": "Terremo conto del tuo desiderio e ne parleremo in un colloquio personale.",
+    "form.insurerNote": "Terremo volentieri conto del tuo desiderio.",
     "form.submit": "Richiedi senza impegno",
     "form.microcopy": "Ti contattiamo per telefono o e-mail. Senza impegno.",
 
