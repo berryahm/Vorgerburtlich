@@ -1,5 +1,5 @@
 /* ============================================================
-   Express Vorgeburtlich: script.js
+   Baby Guide: script.js
    CONFIG · i18n · Validierung · Submit · UI-Verhalten
    Vanilla JS, kein Framework, kein Build-Step.
    ============================================================ */
@@ -45,7 +45,7 @@ const CONFIG = {
 const I18N = {
   /* ---------------- DEUTSCH ---------------- */
   de: {
-    "meta.title": "Express Vorgeburtlich: Krankenkassenanmeldung fürs Baby",
+    "meta.title": "Baby Guide: Krankenkassenanmeldung fürs Baby",
     "meta.description": "Kostenlose, unverbindliche Beratung zur vorgeburtlichen Krankenkassenanmeldung fürs Baby. Schweizer Beratung, einfach & rechtzeitig erledigt.",
     "meta.ogTitle": "Krankenkassenanmeldung fürs Baby: einfach & rechtzeitig",
     "meta.ogDescription": "Kostenlose, unverbindliche Beratung zur vorgeburtlichen Anmeldung deines Babys. Als Dankeschön ein Babyphone bei erfolgreicher Anmeldung.",
@@ -240,7 +240,7 @@ const I18N = {
 
   /* ---------------- ENGLISCH ---------------- */
   en: {
-    "meta.title": "Express Vorgeburtlich: Health Insurance Sign-Up for Your Baby",
+    "meta.title": "Baby Guide: Health Insurance Sign-Up for Your Baby",
     "meta.description": "Free, no-obligation guidance for the prenatal health insurance sign-up for your baby. Swiss advice, simple & done in time.",
     "meta.ogTitle": "Health insurance sign-up for your baby: simple & in time",
     "meta.ogDescription": "Free, no-obligation guidance for your baby's prenatal sign-up. A baby monitor as a thank-you upon successful registration.",
@@ -435,7 +435,7 @@ const I18N = {
 
   /* ---------------- FRANZÖSISCH ---------------- */
   fr: {
-    "meta.title": "Express Vorgeburtlich : inscription à l'assurance maladie pour bébé",
+    "meta.title": "Baby Guide : inscription à l'assurance maladie pour bébé",
     "meta.description": "Conseil gratuit et sans engagement pour l'inscription prénatale de votre bébé à l'assurance maladie. Conseil suisse, simple et à temps.",
     "meta.ogTitle": "Inscription assurance maladie pour bébé : simple et à temps",
     "meta.ogDescription": "Conseil gratuit et sans engagement pour l'inscription prénatale de votre bébé. Un babyphone en remerciement en cas d'inscription réussie.",
@@ -630,7 +630,7 @@ const I18N = {
 
   /* ---------------- ITALIENISCH ---------------- */
   it: {
-    "meta.title": "Express Vorgeburtlich: iscrizione alla cassa malati per il bebè",
+    "meta.title": "Baby Guide: iscrizione alla cassa malati per il bebè",
     "meta.description": "Consulenza gratuita e senza impegno per l'iscrizione prenatale del tuo bebè alla cassa malati. Consulenza svizzera, semplice e in tempo.",
     "meta.ogTitle": "Iscrizione cassa malati per il bebè: semplice e in tempo",
     "meta.ogDescription": "Consulenza gratuita e senza impegno per l'iscrizione prenatale del tuo bebè. Un baby monitor in regalo in caso di iscrizione riuscita.",
@@ -1201,7 +1201,7 @@ function initForm() {
       const body = Object.assign({}, payload, {
         access_key: CONFIG.web3formsKey,
         subject: "Neue Anmeldung: " + payload.firstName + " " + payload.lastName,
-        from_name: "Express Vorgeburtlich"
+        from_name: "Baby Guide"
       });
 
       const res = await fetch(CONFIG.formEndpoint, {
