@@ -210,17 +210,8 @@ const I18N = {
     "wizard.cdPast": "Termin bereits vorbei? Kein Problem, melde dich, wir schauen gemeinsam die nächsten Schritte an.",
     "form.ort": "Ort",
     "form.ortPlaceholder": "wird ergänzt",
-    "timeline.title": "Deine persönliche Anmelde-Timeline",
-    "timeline.i1t": "Jetzt",
-    "timeline.i1d": "Kostenlose Beratung anfordern und Fragen klären.",
-    "timeline.i2t": "Vor der Geburt",
-    "timeline.i2d": "Krankenkasse vergleichen und Anmeldung vorbereiten.",
-    "timeline.i3t": "Rund um die Geburt",
-    "timeline.i3d": "Anmeldung abschliessen, sobald dein Baby da ist.",
-    "timeline.i4t": "Danach",
-    "timeline.i4d": "Babyphone als Dankeschön bei erfolgreicher Anmeldung.*",
     "exit.title": "Termin noch nicht eingetragen?",
-    "exit.text": "Dauert nur 30 Sekunden, und du siehst sofort deine persönliche Anmelde-Timeline.",
+    "exit.text": "Dauert nur 30 Sekunden, und wir melden uns kostenlos und unverbindlich bei dir.",
     "exit.cta": "Jetzt in 30 Sekunden starten",
     "exit.dismiss": "Später",
     "consent.title": "Wir respektieren deine Privatsphäre",
@@ -405,17 +396,8 @@ const I18N = {
     "wizard.cdPast": "Due date already passed? No problem, get in touch and we will look at the next steps together.",
     "form.ort": "Town",
     "form.ortPlaceholder": "added automatically",
-    "timeline.title": "Your personal sign-up timeline",
-    "timeline.i1t": "Now",
-    "timeline.i1d": "Request free guidance and clarify your questions.",
-    "timeline.i2t": "Before the birth",
-    "timeline.i2d": "Compare insurers and prepare the sign-up.",
-    "timeline.i3t": "Around the birth",
-    "timeline.i3d": "Complete the sign-up as soon as your baby arrives.",
-    "timeline.i4t": "Afterwards",
-    "timeline.i4d": "Baby monitor as a thank-you upon successful sign-up.*",
     "exit.title": "Due date not entered yet?",
-    "exit.text": "It takes just 30 seconds, and you will instantly see your personal sign-up timeline.",
+    "exit.text": "It takes just 30 seconds, and we'll get in touch free of charge and without obligation.",
     "exit.cta": "Start now in 30 seconds",
     "exit.dismiss": "Later",
     "consent.title": "We respect your privacy",
@@ -600,17 +582,8 @@ const I18N = {
     "wizard.cdPast": "Date déjà passée? Aucun souci, contactez-nous et nous verrons ensemble les prochaines étapes.",
     "form.ort": "Localité",
     "form.ortPlaceholder": "complété automatiquement",
-    "timeline.title": "Votre calendrier d'inscription personnel",
-    "timeline.i1t": "Maintenant",
-    "timeline.i1d": "Demandez un conseil gratuit et clarifiez vos questions.",
-    "timeline.i2t": "Avant la naissance",
-    "timeline.i2d": "Comparez les caisses et préparez l'inscription.",
-    "timeline.i3t": "Autour de la naissance",
-    "timeline.i3d": "Finalisez l'inscription dès l'arrivée de votre bébé.",
-    "timeline.i4t": "Ensuite",
-    "timeline.i4d": "Babyphone en remerciement après une inscription réussie.*",
     "exit.title": "Date pas encore renseignée?",
-    "exit.text": "Cela ne prend que 30 secondes, et vous verrez aussitôt votre calendrier d'inscription personnel.",
+    "exit.text": "Cela ne prend que 30 secondes, et nous vous contactons gratuitement et sans engagement.",
     "exit.cta": "Commencer en 30 secondes",
     "exit.dismiss": "Plus tard",
     "consent.title": "Nous respectons ta vie privée",
@@ -795,17 +768,8 @@ const I18N = {
     "wizard.cdPast": "Data già passata? Nessun problema, contattaci e vediamo insieme i prossimi passi.",
     "form.ort": "Località",
     "form.ortPlaceholder": "aggiunto automaticamente",
-    "timeline.title": "La tua timeline di iscrizione personale",
-    "timeline.i1t": "Ora",
-    "timeline.i1d": "Richiedi una consulenza gratuita e chiarisci le tue domande.",
-    "timeline.i2t": "Prima della nascita",
-    "timeline.i2d": "Confronta le casse e prepara l'iscrizione.",
-    "timeline.i3t": "Intorno alla nascita",
-    "timeline.i3d": "Completa l'iscrizione non appena arriva il tuo bambino.",
-    "timeline.i4t": "Dopo",
-    "timeline.i4d": "Baby monitor come ringraziamento dopo un'iscrizione riuscita.*",
     "exit.title": "Data non ancora inserita?",
-    "exit.text": "Bastano 30 secondi e vedrai subito la tua timeline di iscrizione personale.",
+    "exit.text": "Bastano 30 secondi e ti contattiamo gratuitamente e senza impegno.",
     "exit.cta": "Inizia in 30 secondi",
     "exit.dismiss": "Più tardi",
     "consent.title": "Rispettiamo la tua privacy",
@@ -1335,7 +1299,6 @@ function initDueDate() {
   const input = form.elements["dueDate"];
   const result = document.getElementById("dueResult");
   const badge = document.getElementById("countdownBadge");
-  const timeline = document.getElementById("timeline");
   if (!input || !result) return;
 
   function render() {
@@ -1363,32 +1326,6 @@ function initDueDate() {
         '<svg class="ic" aria-hidden="true"><use href="#i-clock"></use></svg>' +
         '<span></span>';
       badge.querySelector("span").textContent = msg;
-    }
-
-    if (timeline) {
-      const items = [
-        { now: days > 0, when: t("timeline.i1t"), what: t("timeline.i1d") },
-        { now: false, when: t("timeline.i2t"), what: t("timeline.i2d") },
-        { now: false, when: t("timeline.i3t"), what: t("timeline.i3d") },
-        { now: false, when: t("timeline.i4t"), what: t("timeline.i4d") }
-      ];
-      timeline.innerHTML =
-        '<p class="timeline-title"></p><ul class="timeline-list"></ul>';
-      timeline.querySelector(".timeline-title").textContent = t("timeline.title");
-      const ul = timeline.querySelector(".timeline-list");
-      items.forEach((it) => {
-        const li = document.createElement("li");
-        li.className = "timeline-item" + (it.now ? " is-now" : "");
-        const when = document.createElement("div");
-        when.className = "timeline-when";
-        when.textContent = it.when;
-        const what = document.createElement("div");
-        what.className = "timeline-what";
-        what.textContent = it.what;
-        li.appendChild(when);
-        li.appendChild(what);
-        ul.appendChild(li);
-      });
     }
 
     result.hidden = false;
