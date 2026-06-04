@@ -93,7 +93,7 @@ const I18N = {
     "form.insurerOther": "Andere",
     "form.insurerNote": "Wir berücksichtigen deinen Wunsch gerne.",
     "form.submit": "Unverbindlich anfragen",
-    "form.microcopy": "Wir melden uns telefonisch oder per E-Mail. Keine Verpflichtung.",
+    "form.microcopy": "Babyphone im Wert von CHF 149 als Dankeschön bei erfolgreicher Anmeldung.*",
 
     "err.required": "Bitte fülle dieses Feld aus.",
     "err.firstName": "Bitte gib deinen Vornamen ein.",
@@ -288,7 +288,7 @@ const I18N = {
     "form.insurerOther": "Other",
     "form.insurerNote": "We'll gladly take your wish into account.",
     "form.submit": "Enquire, no obligation",
-    "form.microcopy": "We'll get in touch by phone or email. No obligation.",
+    "form.microcopy": "A baby monitor worth CHF 149 as our thank-you after a successful sign-up.*",
 
     "err.required": "Please fill in this field.",
     "err.firstName": "Please enter your first name.",
@@ -483,7 +483,7 @@ const I18N = {
     "form.insurerOther": "Autre",
     "form.insurerNote": "Nous tiendrons volontiers compte de votre souhait.",
     "form.submit": "Demander sans engagement",
-    "form.microcopy": "Nous vous contactons par téléphone ou e-mail. Sans engagement.",
+    "form.microcopy": "Un babyphone d'une valeur de CHF 149 en remerciement après une inscription réussie.*",
 
     "err.required": "Veuillez remplir ce champ.",
     "err.firstName": "Veuillez indiquer votre prénom.",
@@ -678,7 +678,7 @@ const I18N = {
     "form.insurerOther": "Altra",
     "form.insurerNote": "Terremo volentieri conto del tuo desiderio.",
     "form.submit": "Richiedi senza impegno",
-    "form.microcopy": "Ti contattiamo per telefono o e-mail. Senza impegno.",
+    "form.microcopy": "Un baby monitor del valore di CHF 149 come ringraziamento dopo un'iscrizione riuscita.*",
 
     "err.required": "Compila questo campo.",
     "err.firstName": "Inserisci il tuo nome.",
